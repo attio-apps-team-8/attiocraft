@@ -7,7 +7,9 @@
   },
   "dependencies": {
     "flying-squid": "^1.8.0",
-    "axios": "^1.7.7"
+    "axios": "^1.7.7",
+    "express": "^4.21.1",
+    "fbemitter": "^3.0.0"
   },
   "devDependencies": {
     "@types/react": "*"

@@ -1,4 +1,5 @@
 const axios = require('axios')
+var events = require('./events');
 
 const ATTIO_API_KEY = '210268df87538f59811ad8065558a32b4dfbcc18e31dcdf4fa0efb83309018b8'
 
@@ -30,4 +31,11 @@ module.exports.player = function (player, serv) {
       })
     }
   });
+
+  events.addListener('kill-player', async ({ username }) => {
+    console.log('[SERVER] kill-player', username)
+    if (username === player.username) {
+      player.updateHealth(0)
+    }
+  })
 }

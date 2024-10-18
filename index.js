@@ -1,5 +1,24 @@
 const flyingSquid = require('flying-squid')
 const path = require('path')
+const events = require('./events')
+
+
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/kill-player', (req, res) => {
+  const username = req.query.username
+  console.log('[REQUEST] kill-player', username)
+  events.emit('kill-player', { username })
+  res.status(200)
+  res.send(null)
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+
 
 flyingSquid.createMCServer({
   version: '1.16.5',  // You can specify the Minecraft version
