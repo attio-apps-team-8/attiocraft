@@ -1,0 +1,15 @@
+{
+    "name": "@attio-minecraft/minecraft-server-backend",
+    "version": "0.0.1",
+    "license": "MIT",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+      "@api/attio": "file:.api/apis/attio",
+      "flying-squid": "^1.8.0"
+    },
+    "devDependencies": {
+      "@types/react": "*"
+    }
+  }
