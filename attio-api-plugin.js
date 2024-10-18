@@ -138,4 +138,187 @@ module.exports.player = function (player, serv) {
       `setblock ${position.x - 1} ${position.y - 1} ${position.z + 2} ${itemId}`
     );
   })
+
+  events.addListener('spawn-logo', async ({
+    username,
+  }) => {
+    if (username !== player.username) return
+
+    console.log(`[SERVER] spawn-blocks`)
+
+    const position = {
+      x: Math.round(player.position.x),
+      y: Math.round(player.position.y),
+      z: Math.round(player.position.z),
+    }
+
+    const white = "smooth_quartz";
+    const black = "black_wool";
+
+    player.handleCommand(
+      `setblock ${position.x} ${position.y} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 1} ${position.y} ${position.z} ${black}`
+    );
+
+    player.handleCommand(
+      `setblock ${position.x - 1} ${position.y + 1} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x} ${position.y + 1} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 1} ${position.y + 1} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 2} ${position.y + 1} ${position.z} ${white}`
+    );
+
+    player.handleCommand(
+      `setblock ${position.x - 1} ${position.y + 2} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x} ${position.y + 2} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 1} ${position.y + 2} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 2} ${position.y + 2} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 3} ${position.y + 2} ${position.z} ${white}`
+    );
+
+    player.handleCommand(
+      `setblock ${position.x} ${position.y + 3} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 1} ${position.y + 3} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 2} ${position.y + 3} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 3} ${position.y + 3} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 4} ${position.y + 3} ${position.z} ${white}`
+    );
+
+    player.handleCommand(
+      `setblock ${position.x + 1} ${position.y + 4} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 2} ${position.y + 4} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 3} ${position.y + 4} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 4} ${position.y + 4} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 5} ${position.y + 4} ${position.z} ${white}`
+    );
+
+    player.handleCommand(
+      `setblock ${position.x + 2} ${position.y + 5} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 3} ${position.y + 5} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 4} ${position.y + 5} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 5} ${position.y + 5} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 6} ${position.y + 5} ${position.z} ${white}`
+    );
+
+    player.handleCommand(
+      `setblock ${position.x + 3} ${position.y + 6} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 4} ${position.y + 6} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 5} ${position.y + 6} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 6} ${position.y + 6} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 7} ${position.y + 6} ${position.z} ${white}`
+    );
+
+    player.handleCommand(
+      `setblock ${position.x + 4} ${position.y + 7} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 5} ${position.y + 7} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 6} ${position.y + 7} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 7} ${position.y + 7} ${position.z} ${white}`
+    );
+
+
+    player.handleCommand(
+      `setblock ${position.x + 7} ${position.y} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 8} ${position.y} ${position.z} ${black}`
+    );
+
+
+    player.handleCommand(
+      `setblock ${position.x + 6} ${position.y + 1} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 7} ${position.y + 1} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 8} ${position.y + 1} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 9} ${position.y + 1} ${position.z} ${white}`
+    );
+
+
+    player.handleCommand(
+      `setblock ${position.x + 6} ${position.y + 2} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 7} ${position.y + 2} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 8} ${position.y + 2} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 9} ${position.y + 2} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 10} ${position.y + 2} ${position.z} ${white}`
+    );
+
+
+    player.handleCommand(
+      `setblock ${position.x + 7} ${position.y + 3} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 8} ${position.y + 3} ${position.z} ${black}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 9} ${position.y + 3} ${position.z} ${white}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 10} ${position.y + 3} ${position.z} ${white}`
+    );
+  })
 }

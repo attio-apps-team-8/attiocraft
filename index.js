@@ -72,6 +72,14 @@ app.get('/spawn-blocks', (req, res) => {
   res.send(true)
 })
 
+app.get('/spawn-logo', (req, res) => {
+  const username = req.query.username
+  console.log('[REQUEST] spawn-logo', username)
+  events.emit('spawn-logo', { username })
+  res.status(200)
+  res.send(true)
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
