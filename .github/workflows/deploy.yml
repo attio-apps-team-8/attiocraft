@@ -1,0 +1,24 @@
+name: Deploy to DigitalOcean Droplet
+
+on:
+  push:
+    branches:
+      - main  # Trigger the action on pushes to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Copy files to DigitalOcean Droplet
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USER }}  # Use your username
+          password: ${{ secrets.DO_PASSWORD }}  # Use your password
+          port: 22  # Default SSH port
+          source: "index.js, package.json"  # Files to copy
+          target: "/path/to/code/attiocraft/"  # Change this to your target directory
