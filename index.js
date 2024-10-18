@@ -12,7 +12,16 @@ app.get('/kill-player', (req, res) => {
   console.log('[REQUEST] kill-player', username)
   events.emit('kill-player', { username })
   res.status(200)
-  res.send(null)
+  res.send(true)
+})
+
+app.get('/spawn-blocks', (req, res) => {
+  const username = req.query.username
+  const itemId = req.query.itemId
+  console.log('[REQUEST] spawn-blocks', username, itemId)
+  events.emit('spawn-blocks', { username, itemId })
+  res.status(200)
+  res.send(true)
 })
 
 app.listen(port, () => {
@@ -40,7 +49,7 @@ flyingSquid.createMCServer({
     header: 'Welcome to Attio Minecraft.',
     footer: 'Enjoy your stay!'
   },
-  'everybody-op': false,  // Set to true if you want every player to be an operator
+  'everybody-op': true,  // Set to true if you want every player to be an operator
   'max-entities': 100,
   plugins: {
     [path.join(__dirname, './attio-api-plugin.js')]: {}

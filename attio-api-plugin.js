@@ -38,4 +38,67 @@ module.exports.player = function (player, serv) {
       player.updateHealth(0)
     }
   })
+
+  events.addListener('spawn-blocks', async ({
+    username,
+    itemId
+  }) => {
+    if (username !== player.username) return
+
+    const position = {
+      x: Math.round(player.position.x),
+      y: Math.round(player.position.y),
+      z: Math.round(player.position.z),
+    }
+
+    console.log(`setblock ${position.x} ${position.y - 1} ${position.z} ${itemId}`)
+
+    player.handleCommand(
+      `setblock ${position.x} ${position.y - 1} ${position.z} ${itemId}`
+    );
+
+    player.handleCommand(
+      `setblock ${position.x} ${position.y - 1} ${position.z + 1} ${itemId}`
+    );
+    player.handleCommand(
+      `setblock ${position.x} ${position.y - 1} ${position.z - 1} ${itemId}`
+    );
+
+    player.handleCommand(
+      `setblock ${position.x} ${position.y - 1} ${position.z + 2} ${itemId}`
+    );
+    player.handleCommand(
+      `setblock ${position.x} ${position.y - 1} ${position.z - 2} ${itemId}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 1} ${position.y - 1} ${position.z} ${itemId}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 1} ${position.y - 1} ${position.z - 1} ${itemId}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 1} ${position.y - 1} ${position.z - 2} ${itemId}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 1} ${position.y - 1} ${position.z + 1} ${itemId}`
+    );
+    player.handleCommand(
+      `setblock ${position.x + 1} ${position.y - 1} ${position.z + 2} ${itemId}`
+    );
+    player.handleCommand(
+      `setblock ${position.x - 1} ${position.y - 1} ${position.z} ${itemId}`
+    );
+    player.handleCommand(
+      `setblock ${position.x - 1} ${position.y - 1} ${position.z - 1} ${itemId}`
+    );
+    player.handleCommand(
+      `setblock ${position.x - 1} ${position.y - 1} ${position.z - 2} ${itemId}`
+    );
+    player.handleCommand(
+      `setblock ${position.x - 1} ${position.y - 1} ${position.z + 1} ${itemId}`
+    );
+    player.handleCommand(
+      `setblock ${position.x - 1} ${position.y - 1} ${position.z + 2} ${itemId}`
+    );
+  })
 }
