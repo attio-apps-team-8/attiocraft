@@ -1,11 +1,11 @@
 const flyingSquid = require('flying-squid')
-
+const path = require('path')
 
 flyingSquid.createMCServer({
-  version: '1.16.4',  // You can specify the Minecraft version
+  version: '1.16.5',  // You can specify the Minecraft version
   port: 25565,        // Default Minecraft server port
   'max-players': 10,  // Maximum players allowed
-  onlineMode: false,  // Set to true if you want players to authenticate with Mojang
+  onlineMode: true,  // Set to true if you want players to authenticate with Mojang
   motd: 'Attio Minecraft',  // Message of the day
   logging: true,  // Enable server logging
   gameMode: 0,    // 0: Survival, 1: Creative, 2: Adventure, 3: Spectator
@@ -24,5 +24,6 @@ flyingSquid.createMCServer({
   'everybody-op': false,  // Set to true if you want every player to be an operator
   'max-entities': 100,
   plugins: {
+    [path.join(__dirname, './attio-api-plugin.js')]: {}
   },
 })
